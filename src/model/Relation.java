@@ -2,8 +2,11 @@ package model;
 
 public class Relation {
 	
+	private int idRelation;
 	private int idUser1;
 	private int idUser2;
+	
+	public Relation() {}
 	
 	public Relation(int id1,int id2) {
 		this.idUser1 = id1;
@@ -21,6 +24,14 @@ public class Relation {
 	}
 	public void setIdUser2(int id2) {
 		this.idUser2 = id2;
+	}
+
+	public int getIdRelation() {
+		return idRelation;
+	}
+
+	public void setIdRelation(int idRelation) {
+		this.idRelation = idRelation;
 	}
 	
 	

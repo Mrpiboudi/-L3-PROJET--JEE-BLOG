@@ -4,15 +4,18 @@ public class User {
 	
 	private int id;
 	private int age;
+	private String pseudo;
 	private String firstname;
 	private String lastname;
 	private String genre;
 	private String mail;
 	private String mdp;
 	
+	public User() {}
 	
-	public User(String firstname, String lastname, int age, String genre, String mail, String mdp) {
+	public User(String pseudo, String firstname, String lastname, int age, String genre, String mail, String mdp) {
 		
+		this.pseudo = pseudo;
 		this.firstname = firstname;
 		this.lastname = lastname;
 		this.age = age;
@@ -65,6 +68,18 @@ public class User {
 	}
 	public void setMdp(String mdp) {
 		this.mdp = mdp;
+	}
+
+
+
+	public String getPseudo() {
+		return pseudo;
+	}
+
+
+
+	public void setPseudo(String pseudo) {
+		this.pseudo = pseudo;
 	}
 	
 	

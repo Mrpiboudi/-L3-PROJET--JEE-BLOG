@@ -1,5 +1,6 @@
 package model;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class Post {
@@ -7,10 +8,11 @@ public class Post {
 	private int id;
 	private int idUser;
 	private String msg;
-	private Date date;
+	private Timestamp date;
 	
+	public Post() {}
 	
-	public Post(int idUser, String msg, Date date) {
+	public Post(int idUser, String msg, Timestamp date) {
 		
 		this.idUser = idUser;
 		this.msg = msg;
@@ -40,7 +42,7 @@ public class Post {
 	public Date getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(Timestamp date) {
 		this.date = date;
 	}
 	
