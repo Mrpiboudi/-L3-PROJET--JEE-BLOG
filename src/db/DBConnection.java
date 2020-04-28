@@ -13,7 +13,7 @@ public class DBConnection {
 	/**
 	 * DSN to connect to the database
 	 */
-	static final String DB_URL = "jdbc:mysql://localhost/coursl3";
+	static final String DB_URL = "jdbc:mysql://localhost/mini_blog";
 
 	/**
 	 * Username to connect to the database
