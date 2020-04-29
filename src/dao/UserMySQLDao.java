@@ -220,7 +220,62 @@ public class UserMySQLDao implements UserDao{
 		
 		return postsUser;
 	}
+	
+	public User getUser(String pseudo, String mdp) {
+		
+		User user = new User();
+		
+		//Requete pour recuperer un utilisateur
+		String requete = "SELECT * from user WHERE pseudo = ? AND mdp = ?";
+		
+		Connection connection = DBConnection.getInstance();
+		PreparedStatement preparedStatement = null;
+		
+		try {
+			
+			preparedStatement = connection.prepareStatement(requete);
+			preparedStatement.setString(1, pseudo);
+			preparedStatement.setString(2, mdp);
+			
+			ResultSet rs = preparedStatement.executeQuery();
+			
+			while(rs.next()) {
+				user.setId(rs.getInt("id_user"));
+				user.setPseudo(rs.getString("pseudo"));
+				user.setLastname(rs.getString("prenom"));
+				user.setFirstname(rs.getString("nom"));
+				user.setAge(rs.getInt("age"));
+				user.setMdp(rs.getString("mdp"));
+				user.setMail(rs.getString("email"));
+				user.setGenre(rs.getString("genre"));
+			}
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} finally {
 
+			if (preparedStatement != null) {
+				try {
+					preparedStatement.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+
+		}
+		
+		return user;
+	}
 
 
 

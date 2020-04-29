@@ -1,6 +1,8 @@
 package model;
 
-public class Relation {
+import java.io.Serializable;
+
+public class Relation implements Serializable{
 	
 	private int idRelation;
 	private int idUser1;

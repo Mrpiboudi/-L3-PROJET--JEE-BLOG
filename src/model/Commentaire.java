@@ -1,9 +1,10 @@
 package model;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Date;
 
-public class Commentaire {
+public class Commentaire implements Serializable{
 	
 	private int id;
 	private int idPost;
