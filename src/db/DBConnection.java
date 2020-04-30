@@ -29,7 +29,7 @@ public class DBConnection {
 	 * The connection to the database
 	 */
 	private static Connection connection; 
-
+	
 	/**
 	 * Get a connection to the database
 	 * 
@@ -39,7 +39,7 @@ public class DBConnection {
 	 */
 	public static Connection getInstance()
 	{
-		if (null == connection) {
+		//if (null == connection) {
 			try {
 				Class.forName(JDBC_DRIVER);
 				connection = DriverManager.getConnection(DB_URL,USER,PASS);
@@ -50,7 +50,7 @@ public class DBConnection {
 				//DriverManager.getConnection failed
 				e.printStackTrace();
 			}
-		}
+		//}
 		return connection;
 	}
 

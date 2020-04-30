@@ -175,6 +175,8 @@ public class RegisterServlet extends HttpServlet {
 		db.ajoutUtilisateur(newUser);
 			// If everything's OK, stores the first name and go to indexServlet.
 		session.setAttribute("id_user", db.getUser(login,password).getId());
+		System.out.println(db.getUser(login,password).getId());
+
 		response.sendRedirect(contextPath + "/IndexServlet");
 		}
 	

@@ -28,7 +28,12 @@ public class CommentaireServlet extends HttpServlet {
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.sendRedirect("IndexServlet");
 
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String id_post = request.getParameter("id_post");
 		String id_user = request.getParameter("id_user");
 		String msg = request.getParameter("commentaire");
@@ -37,15 +42,7 @@ public class CommentaireServlet extends HttpServlet {
 		CommentaireMySQLDao cd = new CommentaireMySQLDao();
 		cd.ajouterCommentaire(c);
 
-		
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/IndexServlet");
-		dispatcher.forward(request, response);
-		//request.getRequestDispatcher("index.jsp").forward(request, response);
-
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		response.sendRedirect("IndexServlet");
 	}
 
 }

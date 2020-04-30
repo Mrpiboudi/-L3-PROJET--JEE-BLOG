@@ -39,11 +39,23 @@ public class IndexServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		int id_user = (Integer) session.getAttribute("id_user");
 		
+		
 		RelationMySQLDao rd = new RelationMySQLDao();
 		UserMySQLDao ud = new UserMySQLDao();
 		
 		List<User> friends = new ArrayList();
 		List<Post> allPosts = new ArrayList();
+		
+		//Ajout de nos propres posts 
+		List<Post> myPosts = new ArrayList();
+		myPosts = ud.getAllPosts(id_user);
+		if(!myPosts.isEmpty()) {
+			for(Post p : myPosts) {
+				System.out.println(p.getMsg());
+				p.setCommentsList();
+				allPosts.add(p);
+			}
+		}
 		
 		//Recuperation de la liste d'ami de l'utilisateur
 		friends = rd.getAllFriends(id_user);

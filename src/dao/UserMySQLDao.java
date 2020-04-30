@@ -39,8 +39,8 @@ public class UserMySQLDao implements UserDao{
 			//Execution de la requete
 			preparedStatement.executeUpdate();
 			
-			preparedStatement.close();
-			connection.close();
+			//preparedStatement.close();
+			//connection.close();
 
 		} catch(SQLException e) {
 			e.printStackTrace();

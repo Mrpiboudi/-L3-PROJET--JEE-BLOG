@@ -30,21 +30,19 @@ public class PostServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		response.sendRedirect("IndexServlet");
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id_user = request.getParameter("id_user");
-		String msg = request.getParameter("msg");
+		String msg = request.getParameter("post");
 		
 		Post p = new Post(Integer.parseInt(id_user), msg, new Timestamp(System.currentTimeMillis()));
 		
 		PostMySQLDao pd = new PostMySQLDao();
 		pd.ajouterPost(p);
 		
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/IndexServlet");
-		dispatcher.forward(request, response);
-		//request.getRequestDispatcher("index.jsp").forward(request, response);
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		response.sendRedirect("IndexServlet");
 	}
 
 }

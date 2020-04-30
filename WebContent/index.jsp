@@ -4,7 +4,7 @@
 	import="java.util.ArrayList" import="dao.UserMySQLDao"%>
 
 <%
-	ArrayList<Post> posts = (ArrayList<Post>) request.getAttribute("allPosts");
+	ArrayList<Post> posts = (ArrayList<Post>) request.getAttribute("all_posts");
 	int id_user = (Integer) request.getAttribute("id_user");
 
 	int id_post;
@@ -17,7 +17,6 @@
 <html>
 <head>
 
-<!--<jsp:include page="header.jsp">-->
 
 	<title>Our Blog</title></head>
 <body>
@@ -51,8 +50,8 @@
 					<textarea type='textarea' name="post" placeholder="nouveau Post"></textarea>
 				</div>
 				<div>
-					<input type="hidden" name="id_user" value="<%=id_user%>" /> <input
-						type="submit" name="Publier" value="post" />
+					<input type="hidden" name="id_user" value="<%=id_user%>" />
+					 <input type="submit" name="Publier" value="Post" />
 				</div>
 			</form>
 		</div>
@@ -60,6 +59,7 @@
 		<!-- Affichage de tous les posts et commentaires des amis -->
 		<div class="inaBox">
 			<%
+			if(posts!=null && posts.size()>0){
 				for (Post p : posts) {
 			%>
 			<br>
@@ -83,18 +83,22 @@
 						comments = p.getCommentsList();
 						if (comments.isEmpty()) {
 				%>
-				<h1>Aucun commentaire</h1>
+				<p>Aucun commentaire</p>
 				<%
 					} else {
 				%>
 				<div class="inaBox">
-					<h1>Commentaires :</h1>
+					<p>Commentaires :</p>
 					<%
 						for (Commentaire comm : comments) {
 					%>
 
 					<%
+						System.out.print("id user : "+comm.getIdUser());
+					System.out.print("id post : "+comm.getIdPost());
+					System.out.print("msg : "+comm.getMsg());
 						User c_user = ud.getUser(comm.getIdUser());
+				
 					%>
 
 					<a
@@ -128,6 +132,7 @@
 			</div>
 			<%
 			}
+			}
 		%>
 
 
@@ -138,4 +143,4 @@
 </body>
 
 
-<jsp:include page="footer.jsp"></html>
+<jsp:include page="footer.jsp"/></html>
