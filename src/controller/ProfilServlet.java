@@ -36,15 +36,24 @@ public class ProfilServlet extends HttpServlet {
 		boolean isFriend = false;
 		boolean itsMe = false;
 
+		UserMySQLDao ud = new UserMySQLDao();
+		User u = new User();
+
 		String id = request.getParameter("user");
+		int id_c_user = 0;
 		if(id.equals(null)) {
 			id = (String) request.getAttribute("user_2");
 		}
-		int id_c_user = Integer.parseInt(id);
-		User u = new User();
-		UserMySQLDao ud = new UserMySQLDao();
-		u = ud.getUser(id_c_user);
-
+		if(!id.equals(null)) {
+			 id_c_user = Integer.parseInt(id);
+			 u = ud.getUser(id_c_user);
+		}
+		else {
+			String ps = request.getParameter("pseudo_user");
+			u = ud.getUser(ps);
+			id_c_user = u.getId();
+		}
+		
 		if(id_user == id_c_user) {
 			itsMe = true;
 		} 
