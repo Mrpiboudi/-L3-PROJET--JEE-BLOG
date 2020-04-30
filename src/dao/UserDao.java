@@ -18,4 +18,6 @@ public interface UserDao {
 	public User getUser(String pseudo, String mdp);
 	
 	public User getUser(int id_user);
+	
+	public boolean exist(String pseudo, String mdp);
 }

@@ -56,7 +56,7 @@
 				User p_user = ud.getUser(p.getIdUser());
 			%>
 			<span><a
-				href="<%=request.getContextPath()%>/profil?user=<%=p_user.getPseudo()%>"><%=p_user.getPseudo()%>
+				href="<%=request.getContextPath()%>/Profil?user=<%=p_user.getPseudo()%>"><%=p_user.getPseudo()%>
 					:</a></span>
 			<textarea rows=5 cols=40><%=p.getMsg()%></textarea>
 
@@ -82,7 +82,7 @@
 						User c_user = ud.getUser(comm.getIdUser());
 					%>
 					<span><a
-						href="<%=request.getContextPath()%>/profil?user=<%=c_user.getPseudo()%>"><%=c_user.getPseudo()%>
+						href="<%=request.getContextPath()%>/Profil?user=<%=c_user.getPseudo()%>"><%=c_user.getPseudo()%>
 							: </a></span>
 					<textarea rows=5 cols=40><%=comm.getMsg()%></textarea>
 

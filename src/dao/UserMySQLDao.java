@@ -332,5 +332,53 @@ public class UserMySQLDao implements UserDao{
 		return user;
 	}
 
+	public boolean exist(String pseudo, String mdp) {
+		boolean res = false; 
 
+		String requete = "SELECT * FROM user WHERE pseudo = ? AND mdp = ?";
+
+		Connection connection = DBConnection.getInstance();
+		PreparedStatement preparedStatement = null;
+
+		try {
+
+			preparedStatement = connection.prepareStatement(requete);
+			preparedStatement.setString(1, pseudo);
+			preparedStatement.setString(2, mdp);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while(rs.next()) {
+				if(rs.getString("pseudo").equals(pseudo) && rs.getString("mdp").equals(mdp)) {
+					res = true;
+				}
+			}
+
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} finally {
+
+			if (preparedStatement != null) {
+				try {
+					preparedStatement.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		return res;
+	}
 }
+
+
