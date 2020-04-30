@@ -22,6 +22,20 @@ h1 {
 }
 
 
+input[type=email] {
+	width: 30%;
+	height: 50px;
+	background-color: rgb(200,227,238);
+ 	margin: 0% 0;
+ 	box-sizing: border-box;
+	position: relative;
+	font-size: 130%;
+}
+
+input[type=email]:focus {
+  background-color: rgba(139,252,77,.4);
+
+}
 
  .page{
 	 width: 100%;
