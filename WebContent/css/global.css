@@ -251,5 +251,10 @@ input[type=search] {
 	-webkit-border-radius:7px;
 
  }
+ 
+ a:visited{
+color : rgba(168, 173, 187);
+
+}
 
 }

@@ -137,5 +137,10 @@ input:active{
 	font-size: 150%;
 
 	}
+	
+	a:visited{
+color : rgba(168, 173, 187);
+
+}
 
 }
