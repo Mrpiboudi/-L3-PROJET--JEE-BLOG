@@ -21,6 +21,16 @@
 
 			<h1>entrer un pseudo :</h1>
 			<input type='text' name='login'> <br>
+			<h1>sexe :</h1>
+			<input type='text' name='sexe'> <br>
+			<h1>firsname :</h1>
+			<input type='text' name='firstname'> <br>
+			<h1>lastname :</h1>
+			<input type='text' name='lastname'> <br>
+			<h1>age :</h1>
+			<input type='text' name='age'> <br>
+			<h1>confirmer un mot de passe :</h1>
+			<input type='password' name='confirmePassword'> <br>
 			<h1>entrer votre addresse email :</h1>
 			<input type='text' name='email'> <br>
 			<h1>confirmer votre addresse email :</h1>
