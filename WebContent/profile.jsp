@@ -15,7 +15,23 @@
 <title>Profil utilisateur</title>
 </head>
 <body>
+	
+		<br>
+		<div class="page">
+			<a href="<%=request.getContextPath()%>/login"><b>Our Blog</b></a>
+			<br><br><br>
+		</div>
 
+		<div id = "first_bar">
+			<span><a href = "<%=request.getContextPath()%>/DeconnexionServlet"><h2>Deconnexion</h2></a></span>
+			<div class = "page">
+			<form action="<%=request.getContextPath()%>/SearchUserServlet" method="POST">
+				<input type = "search" name = "pseudo_user" placeholder="search"> <input
+					type="hidden" name="id_user" value="<%=id_user%>" />
+					<input	type="submit" name="Publier" value="search"/>
+			</form>
+		</div>
+	<br>
 	<div id="haut">
 		<span><a href="<%=request.getContextPath()%>/IndexServlet">Retour</a></span>
 		<h1>Profil</h1>

@@ -63,6 +63,7 @@ public class LoginServlet extends HttpServlet {
 			out.println("<body>");
 			out.println("<div class =\"mistake\">");
 			out.println("vous devez entrer un identifiants");
+			out.println("</div>");
 			out.println("</body>");
 			out.println("</html>");
 		    return;
@@ -72,6 +73,7 @@ public class LoginServlet extends HttpServlet {
 			out.println("<body>");
 			out.println("<div class =\"mistake\">");
 			out.println("vous devez entrer un mot de passe");
+			out.println("</div>");
 			out.println("</body>");
 			out.println("</html>");
 			return;
@@ -82,6 +84,7 @@ public class LoginServlet extends HttpServlet {
 			out.println("<body>");
 			out.println("<div class =\"mistake\">");
 			out.println("ce compte n'existe pas ou les informations entré sont fausses ");
+			out.println("</div>");
 			out.println("</body>");
 			out.println("</html>");
 			return;
