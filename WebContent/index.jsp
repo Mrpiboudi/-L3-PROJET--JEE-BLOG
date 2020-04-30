@@ -2,7 +2,8 @@
 	pageEncoding="UTF-8" import="model.User" import="model.Post"
 	import="model.Commentaire" import="java.util.List"
 	import="java.util.ArrayList" import="dao.UserMySQLDao"%>
-
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/global.css"/>
 <%
 	ArrayList<Post> posts = (ArrayList<Post>) request.getAttribute("all_posts");
 	int id_user = (Integer) request.getAttribute("id_user");
@@ -29,7 +30,7 @@
 
 	<div id="first_bar">
 		<span><a
-			href="<%=request.getContextPath()%>/DeconnexionServlet"><h2>Deconnexion</h2></a></span>
+			href="<%=request.getContextPath()%>/LoginServlet"><h2>Deconnexion</h2></a></span>
 		<div class="page">
 			<form action="<%=request.getContextPath()%>/SearchUserServlet"
 				method="POST">
@@ -94,11 +95,7 @@
 					%>
 
 					<%
-						System.out.print("id user : "+comm.getIdUser());
-					System.out.print("id post : "+comm.getIdPost());
-					System.out.print("msg : "+comm.getMsg());
 						User c_user = ud.getUser(comm.getIdUser());
-				
 					%>
 
 					<a
@@ -142,5 +139,3 @@
 
 </body>
 
-
-<jsp:include page="footer.jsp"/></html>

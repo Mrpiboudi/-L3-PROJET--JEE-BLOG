@@ -1,13 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/global.css"/>
 <%@taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!DOCTYPE html>
 <html>
 <head>
-<jsp:include page="header.jsp">
-
-
 
 	<title>Vos informations</title></head>
 <body>

@@ -95,6 +95,7 @@ input[type=email]:focus {
 
 }
 
+
 input[type=text]:focus {
   background-color: rgba(139,252,77,.4);
 
@@ -223,6 +224,9 @@ input[type=search] {
 		transform: translateY(28px);
 	}
 
+	table{
+	text-align: center;
+	}
 
  input[type=password] {
 	 height: 160px;
@@ -234,5 +238,18 @@ input[type=search] {
 
 	}
 
+ .endPage{
+	 text-align: center;
+	margin-left: 15%;
+	background-color: rgb(20,227,238);
+	color : rgb(57, 62, 76);
+	width: 70%;
+	font-size: 200%;
+
+	border:2px;
+	-moz-border-radius:7px;
+	-webkit-border-radius:7px;
+
+ }
 
 }
