@@ -1,83 +1,47 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" import="model.User" import="model.UserMySQLDao"%>
 
-<%
-	String current_username = (String) request.getSession().getAttribute("userName");
-	User current_user = User.getUser(current_user);
-%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<% boolean is_friend = (boolean) request.getAttribute("is_friend");
+    boolean its_me = (boolean) request.getAttribute("its_me");%>
+
 <!DOCTYPE html>
 <html>
 <head>
-<jsp:include page="header.jsp">
-
-	<title>Profile</title></head>
+<meta charset="UTF-8">
+<title>Profil utilisateur</title>
 </head>
 <body>
-	<div class="inaBox">
-		<h1><%=User.getName%></h1>
-		<div>
-			<a>age : <%=User.getAge%></a> <a>sexe : <%=User.getSexe%></a> <a>email
-				: <%=User.getEmail%></a>
-		</div>
+
+	<div id="haut">
+		<span><a href="<%=request.getContextPath()%>/IndexServlet">Retour</a></span>
+		<h1>Profil</h1>
 	</div>
 
-	<%
-		if (current_username == (String) request.getSession().getAttribute("userName")) {
-	%>
-	<a href="<%=request.getContextPath()%>/changeAccountInformation">Modifier
-		vos information</a>
-	<%
-		}
-	%>
-
-	<!-- Montre la liste d'ami l'user -->
-	<div class="inaBox">
-		<%
-			ArrayList<User> friendList = current_user.getFriendList();
-			if (friendList.size() > 0) {
-				for (User friend : friendList) {
-		%>
-		<a href="<%=request.getContextPath()%>/profile"><h1><%=friend.getName()%></h1></a>
-
-		<%
-			}
-			} else {
-		%>
-		<div style="text-align: center;">Aucun ami</div>
-		<%
-			}
-		%>
-	</div>
-	<!-- Montre les post de l'user -->
-
-	<%
-		ArrayList<Post> allPost = current_user.getPost();
-		if (allPost.size() > 0) {
-			for (Post post : allPost) {
-	%>
-
-	<div class="inaBox">
-		<a href="<%=request.getContextPath()%>/profile">
-		<div class="description"> <%=post.getUser.getName()%></div></a>
-		<%
-			ArrayList<Comment> comment = post.getComment();
-		%>
-		<%=comment.toString%>
-		<div class="description">
-			<%=post.getDate()%>
-		</div>
+	<div id="contenu">
+		<span>Pseudo : ${c_user.getPseudo()}</span> <span>Nom :
+			${c_user.getLastname()}</span> <span>Prenom :
+			${c_user.getFirstname()}</span> <span>Age : ${c_user.getAge()}</span> <span>Email
+			: ${c_user.getMail()}</span> <span>Genre : ${c_user.getGenre()}</span>
 	</div>
 
-
-	<%
-		}
-		} else {
-	%>
-	<div style="text-align: center;">Aucun post pour le moment</div>
-	<%
-		}
-	%>
-
+	<div id="add_delete_friend">
+		<%if (its_me == true) {%>
+			<a href="<%=request.getContextPath()%>/ChangeAccountInformationServlet"
+			class="bouton1">Modifier vos informations</a>
+		<%} else {%>
+		<% if( is_friend == true) {%>
+		<a
+			href="<%=request.getContextPath()%>/UnfollowServlet?userU=${c_user.getId()}"
+			class="bouton1">Ne plus suivre</a>
+		<%} else {%>
+		<a
+			href="<%=request.getContextPath()%>/FollowServlet?userF=${c_user.getId()}"
+			class="bouton2">Suivre</a>
+		<%} %>
+		<%} %>
+	</div>
 
 </body>
 </html>

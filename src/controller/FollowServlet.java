@@ -11,54 +11,39 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.RelationMySQLDao;
-import dao.UserMySQLDao;
-import model.User;
+import model.Relation;
 
 /**
- * Servlet implementation class Profil
+ * Servlet implementation class FollowServlet
  */
-@WebServlet("/Profil")
-public class ProfilServlet extends HttpServlet {
+@WebServlet("/FollowServlet")
+public class FollowServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public ProfilServlet() {
-		super();
-	}
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public FollowServlet() {
+        super();
+    }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 		HttpSession session = request.getSession(true);
 		int id_user = (Integer) session.getAttribute("id_user");
-
-		boolean isFriend = false;
-		boolean itsMe = false;
-
-		String id = request.getParameter("user");
-		if(id.equals(null)) {
-			id = (String) request.getAttribute("user_2");
-		}
-		int id_c_user = Integer.parseInt(id);
-		User u = new User();
-		UserMySQLDao ud = new UserMySQLDao();
-		u = ud.getUser(id_c_user);
-
-		if(id_user == id_c_user) {
-			itsMe = true;
-		} 
+		
+		String idUser2Tmp = (String) request.getParameter("userU");
+		int id_user_2 = Integer.parseInt(idUser2Tmp);
+		
 		RelationMySQLDao rd = new RelationMySQLDao();
-		isFriend = rd.relationExist(id_user, id_c_user);
-
-		request.setAttribute("c_user",u);
-		request.setAttribute("is_friend", isFriend);
-		request.setAttribute("its_me", itsMe);
-
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("profil.jsp");
+		Relation newRelation = new Relation(id_user, id_user_2);
+		rd.ajouterRelation(newRelation);
+		
+		request.setAttribute("user_2", idUser2Tmp);
+		
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ProfilServlet");
 		dispatcher.forward(request, response);
-
-
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

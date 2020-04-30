@@ -15,38 +15,63 @@
 	<br>
 	<div class="page">
 		<a href="<%=request.getContextPath()%>/login"><b>Our Blog</b></a> <br>
-		<br>
-		<br>
+		<br> <br>
 		<form action="" method="POST">
 
-			<h1>entrer un pseudo :</h1>
-			<input type='text' name='login'> <br>
-			<h1>sexe :</h1>
-			<input type='text' name='sexe'> <br>
-			<h1>firsname :</h1>
-			<input type='text' name='firstname'> <br>
-			<h1>lastname :</h1>
-			<input type='text' name='lastname'> <br>
-			<h1>age :</h1>
-			<input type='text' name='age'> <br>
-			<h1>confirmer un mot de passe :</h1>
-			<input type='password' name='confirmePassword'> <br>
-			<h1>entrer votre addresse email :</h1>
-			<input type='text' name='email'> <br>
-			<h1>confirmer votre addresse email :</h1>
-			<input type='text' name='confirmeEmail'> <br>
-			<h1>entrer un mot de passe :</h1>
-			<input type='password' name='password'> <br>
-			<h1>confirmer un mot de passe :</h1>
-			<input type='password' name='confirmePassword'> <br>
+			<div>
+				<label for="pseudo" /> <input type="text" id="login" name="login"
+					placeholder="pseudo">
+			</div>
+			<br>
+			<div>
+				<select name="sexe" size="1" id="sexe">
+					<option><div class="description">Feminin</div>
+					<option><div class="description">Masculin</div>
+				</select>
+			</div>
+			<br>
+			<div>
+				<label for="nom" /> <input type="text" id="lastname" name="lastname"
+					placeholder="nom"><br>
+			</div>
+			<br>
+			<div>
+				<label for="prenom" /> <input type="text" id="firstname"
+					name="firstname" placeholder="prenom"><br>
+			</div>
+			<div>
+				<label for="age" /> <input type=text id="age" name="age"
+					placeholder="modifier age"><br>
+			</div>
+			<div>
+				<label for="mdp" /> <input type="password" id="password"
+					name="password" placeholder="nouveau mot de passe">
+			</div>
+			<br>
+			<div>
+				<label for="mdp_confirm" /> <input type="password"
+					id="confirmePassword" name="confirmePassword"
+					placeholder="confirmer mot de passe">
+			</div>
+			<br>
+			<div>
+				<label for="email" /> <input type="email" id="email" name="email"
+					placeholder="email address"><br>
+			</div>
+			<br>
+			<div>
+				<label for="email" /> <input type="email" id="confirmeEmail"
+					name="confirmEmail" placeholder="confirm email address"><br>
+			</div>
+			<br>
 			<div>
 				<input type='submit' name='submit' value='register'>
 			</div>
 		</form>
 
 		<div>
-			<a href="<%=request.getContextPath()%>/login">vous avez déja un
-				compte ?</a>
+			<a href="<%=request.getContextPath()%>/LoginServlet">vous avez
+				déja un compte ?</a>
 		</div>
 	</div>
 </body>
