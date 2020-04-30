@@ -52,7 +52,7 @@ public class IndexServlet extends HttpServlet {
 		if(!myPosts.isEmpty()) {
 			for(Post p : myPosts) {
 				System.out.println(p.getMsg());
-				p.setCommentsList();
+				//p.setCommentsList();
 				allPosts.add(p);
 			}
 		}
@@ -66,7 +66,7 @@ public class IndexServlet extends HttpServlet {
 			postsFriend = ud.getAllPosts(u.getId());
 			//Nous ajoutons chaque poste de l'ami 
 			for(Post p : postsFriend) {
-				p.setCommentsList();
+				//p.setCommentsList();
 				allPosts.add(p);
 			}
 			

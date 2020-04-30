@@ -37,6 +37,8 @@ public class CommentaireServlet extends HttpServlet {
 		String id_post = request.getParameter("id_post");
 		String id_user = request.getParameter("id_user");
 		String msg = request.getParameter("commentaire");
+		
+		System.out.println("id user comm : "+id_user);
 
 		Commentaire c = new Commentaire(Integer.parseInt(id_post), Integer.parseInt(id_user), msg,new Timestamp(System.currentTimeMillis()));
 		CommentaireMySQLDao cd = new CommentaireMySQLDao();

@@ -31,7 +31,7 @@
 	<h1>password</h1>
 	<div>
 		<label for="mdp" /> <input type="password" id="password"
-			name="password" placeholder="nouveau mot de passe">
+			name="password" placeholder="mot de passe">
 	</div>
 	<div>
 		<input type='submit' name='submit' value='connexion'>

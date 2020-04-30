@@ -132,6 +132,7 @@ public class PostMySQLDao implements PostDao{
 				Commentaire c = new Commentaire();
 				c.setId(rs.getInt("id_comm"));
 				c.setIdPost(rs.getInt("id_post"));
+				c.setIdUser(rs.getInt("id_user"));
 				c.setMsg(rs.getString("message"));
 				c.setDate(rs.getTimestamp("date"));
 

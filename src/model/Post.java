@@ -59,7 +59,7 @@ public class Post implements Serializable{
 
 	public void setCommentsList() {
 		PostMySQLDao pd = new PostMySQLDao();
-		this.commentsList = pd.getAllComments(this.id);
+		this.commentsList = pd.getAllComments(this.getId());
 	}
 	
 	

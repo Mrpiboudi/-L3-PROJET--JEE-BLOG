@@ -94,11 +94,11 @@ public class UserMySQLDao implements UserDao{
 	@Override
 	public void updateUtilisateur(User user, String[] parametres) {
 		// TODO Auto-generated method stub
-
+		
 		//requete pour modifier un utilisateur 
 		String requete = "UPDATE user Set "
 				+ "pseudo = ?, nom = ?, prenom = ?, age = ?, mdp = ?, email = ?, genre = ? "
-				+ "WHERE id = ?";
+				+ "WHERE id_user = ?";
 
 		Connection connection = DBConnection.getInstance();
 		PreparedStatement preparedStatement = null;
@@ -112,8 +112,8 @@ public class UserMySQLDao implements UserDao{
 			preparedStatement.setString(3, parametres[2]);
 			preparedStatement.setInt(4, Integer.parseInt((parametres[3])));
 			preparedStatement.setString(5, parametres[4]);
-			preparedStatement.setString(6, parametres[5]);
-			preparedStatement.setString(7, parametres[6]);
+			preparedStatement.setString(6, parametres[6]);
+			preparedStatement.setString(7, parametres[7]);
 			preparedStatement.setInt(8, user.getId());
 
 			//Execution de la requete

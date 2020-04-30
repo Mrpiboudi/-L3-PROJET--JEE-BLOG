@@ -39,7 +39,7 @@ public class ChangeAccountInformationServlet extends HttpServlet {
 
 		request.setAttribute("u", u);
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("changeAccountInformation.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/changeAccountInformation.jsp");
 		dispatcher.forward(request, response);
 
 	}
