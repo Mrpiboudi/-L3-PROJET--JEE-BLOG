@@ -13,7 +13,7 @@ public class DBConnection {
 	/**
 	 * DSN to connect to the database
 	 */
-	static final String DB_URL = "jdbc:mysql://localhost/mini_blog";
+	static final String DB_URL = "jdbc:mysql://localhost:3306/mini_blog?useTimezone=true&serverTimezone=UTC";
 
 	/**
 	 * Username to connect to the database

@@ -23,7 +23,7 @@ import model.User;
 /**
  * Servlet implementation class IndexServlet
  */
-@WebServlet("/IndexServlet")
+
 public class IndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -64,7 +64,7 @@ public class IndexServlet extends HttpServlet {
 		request.setAttribute("all_posts", allPosts);
 		request.setAttribute("id_user", id_user);
 		
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("index.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
 		dispatcher.forward(request, response);
 		//request.getRequestDispatcher("index.jsp").forward(request, response);
 		

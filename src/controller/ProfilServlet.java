@@ -17,7 +17,7 @@ import model.User;
 /**
  * Servlet implementation class Profil
  */
-@WebServlet("/Profil")
+
 public class ProfilServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

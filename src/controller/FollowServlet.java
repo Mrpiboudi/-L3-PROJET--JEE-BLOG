@@ -16,7 +16,7 @@ import model.Relation;
 /**
  * Servlet implementation class FollowServlet
  */
-@WebServlet("/FollowServlet")
+
 public class FollowServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

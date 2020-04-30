@@ -17,13 +17,13 @@ public class UserMySQLDao implements UserDao{
 	@Override
 	public void ajoutUtilisateur(User user) {
 		// TODO Auto-generated method stub
-
+		
 		//Requete pour inserer un nouvel utilisateur
 		String requete = "INSERT INTO user (pseudo,nom,prenom,age,mdp,email,genre) VALUES (?,?,?,?,?,?,?)";
 
 		//Connexion à la base de données
 		Connection connection = DBConnection.getInstance();
-		PreparedStatement preparedStatement = null;
+		PreparedStatement preparedStatement;
 
 		try {
 			//Preparation de la requete
@@ -38,31 +38,13 @@ public class UserMySQLDao implements UserDao{
 
 			//Execution de la requete
 			preparedStatement.executeUpdate();
+			
+			preparedStatement.close();
+			connection.close();
 
 		} catch(SQLException e) {
 			e.printStackTrace();
-		} finally {
-
-			if (preparedStatement != null) {
-				try {
-					preparedStatement.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-
-			if (connection != null) {
-				try {
-					connection.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-
-		}
-
+		} 
 	}
 
 	@Override

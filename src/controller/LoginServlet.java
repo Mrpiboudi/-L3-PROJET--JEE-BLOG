@@ -16,7 +16,7 @@ import dao.UserMySQLDao;
 /**
  * Servlet implementation class loginController
  */
-@WebServlet("/loginController")
+
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -91,7 +91,7 @@ public class LoginServlet extends HttpServlet {
 		}
 		
 			// If everything's OK, stores the first name and go to indexServlet.
-			session.setAttribute("userID", db.getUser(login,password).getId());
+			session.setAttribute("id_user", db.getUser(login,password).getId());
 			response.sendRedirect(contextPath + "/IndexServlet");
 		
 	}

@@ -19,7 +19,7 @@
 	<br>
 	<br>
 	<div class="page">
-		<a href="<%=request.getContextPath()%>/login"><b>Our Blog</b></a> <br>
+		<a href="<%=request.getContextPath()%>/LoginServlet"><b>Our Blog</b></a> <br>
 		<br> <br>
 		<form action="" method="POST">
 
@@ -39,7 +39,7 @@
 	</form>
 
 	<div>
-		<a href="<%=request.getContextPath()%>/register">Or Register a new
+		<a href="<%=request.getContextPath()%>/RegisterServlet">Or Register a new
 			account</a>
 	</div>
 	</div>

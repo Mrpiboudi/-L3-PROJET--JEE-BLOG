@@ -41,11 +41,11 @@
 			</div>
 			<div>
 				<label for="age" /> <input type=text id="age" name="age"
-					placeholder="modifier age"><br>
+					placeholder="age"><br>
 			</div>
 			<div>
 				<label for="mdp" /> <input type="password" id="password"
-					name="password" placeholder="nouveau mot de passe">
+					name="password" placeholder=" mot de passe">
 			</div>
 			<br>
 			<div>
@@ -61,7 +61,7 @@
 			<br>
 			<div>
 				<label for="email" /> <input type="email" id="confirmeEmail"
-					name="confirmEmail" placeholder="confirm email address"><br>
+					name="confirmeEmail" placeholder="confirm email address"><br>
 			</div>
 			<br>
 			<div>

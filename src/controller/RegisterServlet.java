@@ -17,7 +17,7 @@ import model.User;
 /**
  * Servlet implementation class registerController
  */
-@WebServlet("/registerController")
+
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -41,13 +41,14 @@ public class RegisterServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		// TODO Auto-generated method stub
 		PrintWriter out = response.getWriter();
 		// Read the first name given in the form
 		String login = request.getParameter("login");
 		String sexe = request.getParameter("sexe");
 		String age = request.getParameter("age");
-		String firstname = request.getParameter("fistname");
+		String firstname = request.getParameter("firstname");
 		String lastname = request.getParameter("lastname");
 		String email = request.getParameter("email");
 		String confirmeEmail = request.getParameter("confirmeEmail");
@@ -82,6 +83,7 @@ public class RegisterServlet extends HttpServlet {
 			out.println("vous devez entrer un age");
 			out.println("</body>");
 			out.println("</html>");
+			return;
 		}
 		if (null == firstname || firstname.isEmpty()) {
 			out.println("<html>");
@@ -90,6 +92,7 @@ public class RegisterServlet extends HttpServlet {
 			out.println("vous devez entrer un prénom");
 			out.println("</body>");
 			out.println("</html>");
+			return;
 		}
 		if (null == lastname || lastname.isEmpty()) {
 			out.println("<html>");
@@ -98,6 +101,7 @@ public class RegisterServlet extends HttpServlet {
 			out.println("vous devez entrer un nom");
 			out.println("</body>");
 			out.println("</html>");
+			return;
 		}
 		if(null == password || password.isEmpty()) {
 			out.println("<html>");
@@ -168,8 +172,9 @@ public class RegisterServlet extends HttpServlet {
 		}
 		
 		User newUser = new User(login, firstname, lastname, Integer.parseInt(age), sexe, email, password);
+		db.ajoutUtilisateur(newUser);
 			// If everything's OK, stores the first name and go to indexServlet.
-		session.setAttribute("userID", db.getUser(login,password).getId());
+		session.setAttribute("id_user", db.getUser(login,password).getId());
 		response.sendRedirect(contextPath + "/IndexServlet");
 		}
 	
