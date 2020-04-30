@@ -183,5 +183,35 @@ public class RelationMySQLDao implements RelationDao{
 		
 		return friends;
 	}
-
+	
+	public boolean relationExist(int idUser, int idUser2) {
+		boolean res = false;
+		
+		//Requete pour recuperer la relation
+		String requete = "SELECT * FROM relation WHERE id_user1 = ? AND id_user2 = ?";
+		
+		Connection connection = DBConnection.getInstance();
+		PreparedStatement preparedStatement = null; 
+		
+		try {
+			
+			preparedStatement = connection.prepareStatement(requete);
+			preparedStatement.setInt(1, idUser);
+			preparedStatement.setInt(2, idUser2);
+			
+			ResultSet rs = preparedStatement.executeQuery();
+			
+			while(rs.next()) {
+				if((rs.getInt("id_user1") == idUser) && (rs.getInt("id_user2") == idUser2)) 
+					res = true;
+			}
+			
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return res;
+	}
 }

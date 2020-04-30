@@ -11,5 +11,7 @@ public interface RelationDao {
 	public void supprimerRelation(Relation r);
 	
 	public List<User> getAllFriends(int idUser);
+	
+	public boolean relationExist(int idUser, int idUser2);
 
 }

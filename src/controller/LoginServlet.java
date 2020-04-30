@@ -11,17 +11,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.UserMySQLDao;
+
 /**
  * Servlet implementation class loginController
  */
 @WebServlet("/loginController")
-public class loginController extends HttpServlet {
+public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public loginController() {
+    public LoginServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -87,7 +89,7 @@ public class loginController extends HttpServlet {
 		
 			// If everything's OK, stores the first name and go to indexServlet.
 			session.setAttribute("userID", db.getUser(login,password).getId());
-			response.sendRedirect(contextPath + "/indexController");
+			response.sendRedirect(contextPath + "/IndexServlet");
 		
 	}
 

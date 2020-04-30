@@ -28,6 +28,15 @@
  	<url-pattern>/CommentaireServlet</url-pattern>
  </servlet-mapping>
  
+  <servlet>
+ 	<servlet-name>profilServlet</servlet-name>
+ 	<servlet-class>controller.ProfilServlet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+ 	<servlet-name>profilServlet</servlet-name>
+ 	<url-pattern>/ProfilServlet</url-pattern>
+ </servlet-mapping>
+ 
  <servlet>
  	<servlet-name>changeAccountInformationServlet</servlet-name>
  	<servlet-class>controller.ChangeAccountInformationServlet</servlet-class>
@@ -35,5 +44,41 @@
  <servlet-mapping>
  	<servlet-name>changeAccountInformationServlet</servlet-name>
  	<url-pattern>/ChangeAccountInformationServlet</url-pattern>
+ </servlet-mapping>
+ 
+ <servlet>
+ 	<servlet-name>loginServlet</servlet-name>
+ 	<servlet-class>controller.LoginServlet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+ 	<servlet-name>loginServlet</servlet-name>
+ 	<url-pattern>/LoginServlet</url-pattern>
+ </servlet-mapping>
+ 
+ <servlet>
+ 	<servlet-name>registerServlet</servlet-name>
+ 	<servlet-class>controller.RegisterServlet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+ 	<servlet-name>registerServlet</servlet-name>
+ 	<url-pattern>/RegisterServlet</url-pattern>
+ </servlet-mapping>
+ 
+ <servlet>
+ 	<servlet-name>followServlet</servlet-name>
+ 	<servlet-class>controller.FollowServlet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+ 	<servlet-name>followServlet</servlet-name>
+ 	<url-pattern>/FollowServlet</url-pattern>
+ </servlet-mapping>
+ 
+ <servlet>
+ 	<servlet-name>unfollowServlet</servlet-name>
+ 	<servlet-class>controller.UnfollowServlet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+ 	<servlet-name>unfollowServlet</servlet-name>
+ 	<url-pattern>/UnfollowServlet</url-pattern>
  </servlet-mapping>
 </web-app>
