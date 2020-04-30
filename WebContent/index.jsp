@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="model.User" import="model.Post"
 	import="model.Commentaire" import="java.util.List"
-	import="java.util.ArrayList" import="dao.UserMySQLDao"%>
+	import="java.util.ArrayList" import="dao.UserMySQLDao"
 
-
+		%>
+	
 <%
 	ArrayList<Post> posts = (ArrayList<Post>) request.getAttribute("allPosts");
 	int id_user = (Integer) request.getAttribute("id_user");
@@ -19,34 +20,26 @@
 <head>
 
 <jsp:include page="header.jsp">
-
+	
 	<title>Our Blog</title></head>
 </head>
 <body>
-	
-	<div id = "first_bar">
-		<span><a href = "<%=request.getContextPath()%>/DeconnexionServlet">Deconnexion</a></span>
-		<div id = "search_user">
-		<form action="<%=request.getContextPath()%>/SearchUserServlet" method="POST">
-			<input type = "text" name = "pseudo_user" > <input
-				type="hidden" name="id_user" value="<%=id_user%>" /> <input
-				type="submit" name="Publier" />
-		</form>
+
+		<a href = "<%=request.getContextPath()%>/ChangeAccountInformationServlet"><h1>Compte</h1></a>
 	</div>
-		<span><a href = "<%=request.getContextPath()%>/ChangeAccountInformationServlet">Compte</a></span>
-	</div>
-	
+	<div class="page">
 	<!-- Creation de post -->
-	<div id = "create_post">
+	<div class = "inaBox">
 		<form action="<%=request.getContextPath()%>/PostServlet" method="POST">
-			<textarea name="post"> Nouveau post </textarea> <input
+		<div>	<textarea type='textarea' name="post" placeholder="nouveau Post" ></textarea> </div>
+		<div>	<input
 				type="hidden" name="id_user" value="<%=id_user%>" /> <input
-				type="submit" name="Publier" />
+				type="submit" name="Publier" value = "post"/></div>
 		</form>
 	</div>
 
 	<!-- Affichage de tous les posts et commentaires des amis -->
-	<div id = "all_posts">
+	<div class = "inaBox">
 		<%
 			for (Post p : posts) {
 		%>
@@ -55,12 +48,13 @@
 			<%
 				User p_user = ud.getUser(p.getIdUser());
 			%>
-			<span><a
-				href="<%=request.getContextPath()%>/ProfilServlet?user=<%=p_user.getId()%>"><%=p_user.getPseudo()%>
-					:</a></span>
-			<textarea rows=5 cols=40><%=p.getMsg()%></textarea>
 
-			<span><%=p.getDate()%></span>
+			<a
+				href="<%=request.getContextPath()%>/ProfilServlet?user=<%=p_user.getId()%>"><class="description"><%=p_user.getPseudo()%>
+					:</class="description"></a>
+			<div><textarea type="textarea" rows=5 cols=40><%=p.getMsg()%></textarea></div>
+
+			<div class="description" ><%=p.getDate()%></div>
 
 			<%
 				List<Commentaire> comments = new ArrayList<Commentaire>();
@@ -68,43 +62,41 @@
 					comments = p.getCommentsList();
 					if (comments.isEmpty()) {
 			%>
-			<span>Aucun commentaire</span>
+			<h1>Aucun commentaire</h1>
 			<%
 				} else {
 			%>
-			<div id="commentaires">
-				<span>Commentaires : </span>
+			<div class="inaBox">
+				<h1>Commentaires : </h1>
 				<%
 					for (Commentaire comm : comments) {
 				%>
-				<div>
+
 					<%
 						User c_user = ud.getUser(comm.getIdUser());
 					%>
-					<span><a
-						href="<%=request.getContextPath()%>/ProfilServlet?user=<%=c_user.getId()%>"><%=c_user.getPseudo()%>
-							: </a></span>
-					<textarea rows=5 cols=40><%=comm.getMsg()%></textarea>
 
-					<span><%=comm.getDate()%></span>
+					<a
+						href="<%=request.getContextPath()%>/ProfilServlet?user=<%=c_user.getId()%>"><div class="description"><%=c_user.getPseudo()%>
+							:</a>	<span><%=comm.getDate()%></span></div>
+					<div><textarea type="commentaire" rows=5 cols=40><%=comm.getMsg()%></textarea>	</div>
 
-				</div>
 				<%
 					}
 				%>
-			</div>
+
 			<%
 				}
 			%>
 
-			<div>
+
 				<form action="<%=request.getContextPath()%>/CommentaireServlet" method="POST">
-					<input type="textarea" name="commentaire"> Ecrivez un
-					commentaire </input> <input type="hidden" name="id_post"
-						value="<%=p.getId()%>" /> <input type="hidden" name="id_user"
-						value="<%=id_user%>" /> <input type="submit" name="Ajouter" />
+					<input type="post" name="commentaire" placeholder="comments.."></textarea>
+					<input type="hidden" name="id_post" value="<%=p.getId()%>" />
+					<input type="hidden" name="id_user"	value="<%=id_user%>" />
+					<input type="submit" name="Ajouter" value ="commenter"/>
 				</form>
-			</div>
+
 
 		</div>
 		<%
@@ -113,7 +105,7 @@
 
 
 	</div>
-
+</div>
 
 
 </body>

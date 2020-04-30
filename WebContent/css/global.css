@@ -21,6 +21,11 @@ h1 {
 		text-align: center;
 }
 
+h2 {
+    text-shadow: 0 2px 2px rgba(139,252,77,.4);
+    font-size: 130%;
+}
+
 /* pour afficher un commentaire */
 .inaBox{
 	text-align: center;
@@ -30,6 +35,12 @@ h1 {
   -webkit-border-radius:7px;
 }
 
+.inaBox{
+	text-align: center;
+  border: solid;
+
+  -moz-border-radius:2px;
+}
 .description{
   font-family:verdana, sans-serif;
   font-size: 100%;
@@ -69,6 +80,26 @@ input[type=text]:focus {
 
 }
 
+input[type=email] {
+	width: 30%;
+	height: 50px;
+	background-color: rgb(200,227,238);
+ 	margin: 0% 0;
+ 	box-sizing: border-box;
+	position: relative;
+	font-size: 130%;
+}
+
+input[type=email]:focus {
+  background-color: rgba(139,252,77,.4);
+
+}
+
+input[type=text]:focus {
+  background-color: rgba(139,252,77,.4);
+
+}
+
 input[type=password] {
 	width: 30%;
 	height: 50px;
@@ -95,6 +126,16 @@ textarea[type=textarea] {
 	font-size: 130%;
 }
 
+textarea[type=commentaire] {
+	width: 40%;
+  height: 80px;
+	background-color: rgb(200,227,238);
+ 	margin: 0% 0;
+ 	box-sizing: border-box;
+  border: solid #1C783F 5px;
+	position: relative;
+	font-size: 130%;
+}
 input[type=password]:focus {
   background-color: rgba(139,252,77,.4);
 
@@ -130,6 +171,33 @@ input[type=danger] {
 
 }
 
+input[type=post] {
+background-color: rgb(200,227,238);
+border: none;
+  color: rgb(57, 62, 76);
+	width: 25%;
+	height: 40px;
+	text-decoration: none;
+  margin: 20px 2px;
+  cursor: pointer;
+	font-size: 130%;
+	text-align: center;
+
+}
+
+input[type=search] {
+	width: 25%;
+	height: 40px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 50px;
+  background-color: white;
+  background-image: url('searchIcon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  transition: width 0.4s ease-in-out;
+}
  .mistake{
 	height: 100%;
 	color : rgb(217,74,75);

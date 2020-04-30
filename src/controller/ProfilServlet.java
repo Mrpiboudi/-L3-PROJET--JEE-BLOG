@@ -55,7 +55,8 @@ public class ProfilServlet extends HttpServlet {
 		request.setAttribute("is_friend", isFriend);
 		request.setAttribute("its_me", itsMe);
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("profilOther.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("profil.jsp");
+
 		dispatcher.forward(request, response);
 
 

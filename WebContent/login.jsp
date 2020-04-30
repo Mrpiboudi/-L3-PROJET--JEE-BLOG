@@ -20,23 +20,28 @@
 	<br>
 	<div class="page">
 		<a href="<%=request.getContextPath()%>/login"><b>Our Blog</b></a> <br>
-		<br>
-		<br>
+		<br> <br>
 		<form action="" method="POST">
 
 			<h1>login</h1>
-			<input type='text' name='login'> <br>
-			<h1>password</h1>
-			<input type='password' name='password'> <br> <br>
 			<div>
-				<input type='submit' name='submit' value='connexion'>
+			<label for="pseudo" /> <input type="text" id="login" name="login"
+				placeholder="pseudo">
 			</div>
-		</form>
+	<h1>password</h1>
+	<div>
+		<label for="mdp" /> <input type="password" id="password"
+			name="password" placeholder="nouveau mot de passe">
+	</div>
+	<div>
+		<input type='submit' name='submit' value='connexion'>
+	</div>
+	</form>
 
-		<div>
-			<a href="<%=request.getContextPath()%>/register">Or Register a
-				new account</a>
-		</div>
+	<div>
+		<a href="<%=request.getContextPath()%>/register">Or Register a new
+			account</a>
+	</div>
 	</div>
 </body>
 </html>

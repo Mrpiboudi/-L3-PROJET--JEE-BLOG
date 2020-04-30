@@ -6,65 +6,78 @@
 <html>
 <head>
 <jsp:include page="header.jsp">
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="style/style.css">
-	<link rel="stylesheet" href="style/global.css">
+
+
+
 	<title>Vos informations</title></head>
 <body>
-	
+
 	<div id = "haut">
-		<span><a href = "<%=request.getContextPath()%>/ProfileServlet">Retour</a></span>
+		<span>	<a href = "<%=request.getContextPath()%>/ProfileServlet"><h2>Retour</h2></a>	<span>
 		<h1>Modifications de vos informations</h1>
 	</div>
-	
+
 	<div class="page">
 		<form action="" method="POST">
-		
-			<label for="pseudo">Nouveau pseudo:</label> 
-			<input type="text" id="pseudo" name = "pseudo">
-			<span><em>Ancien pseudo : <c:out value = "${u.getPseudo()}"/></em></span>
+			<div>
+			<label for="pseudo"/>
+			<input type="text" id="pseudo" name = "pseudo" placeholder="modifier pseudo"><br>
+			<span><em><div class="description">Ancien pseudo : </div><c:out value = "${u.getPseudo()}"/></em></span>
+			</div>
 			<br>
-			
-			<label for="nom">Nouveau nom:</label> 
-			<input type="text" id="nom" name = "nom">
-			<span><em>Ancien nom : <c:out value = "${u.getLastname()}"/></em></span>
+			<div>
+			<label for="nom"/>
+			<input type="text" id="nom" name = "nom" placeholder="modifier nom"><br>
+			<span><em><div class="description">Ancien nom : </div><c:out value = "${u.getLastname()}"/></em></span>
+			</div>
 			<br>
-			
-			<label for="prenom">Nouveau prenom:</label> 
-			<input type="text" id="prenom" name = "prenom">
-			<span><em>Ancien prenom : <c:out value = "${u.getFirstname()}"/></em></span>
+			<div>
+			<label for="prenom"/>
+			<input type="text" id="prenom" name = "prenom" placeholder="modifier prenom"><br>
+			<span><em><div class="description">Ancien prenom : </div><c:out value = "${u.getFirstname()}"/></em></span>
+			</div>
 			<br>
-			
-			<label for="age">Nouvel age:</label> 
-			<input type=text id="age" name ="age">
-			<span><em>Ancien age : <c:out value = "${u.getAge()}"/></em></span>
-			<br>
-			
-			<label for="mdp">Nouveau mot de passe:</label> 
-			<input type="password" id="mdp" name = "mdp">
-			<label for="mdp_confirm">Confirmation nouveau mot de passe:</label> 
-			<input type="password" id="mdp_confirm" name = "mdp_confirm">
+<div>
+			<label for="age"/>
+			<input type=text id="age" name ="age" placeholder="modifier age"><br>
+			<span><em><div class="description">Ancien age : </div><c:out value = "${u.getAge()}"/></em></span>
+</div>
 			<br>
 
-			<label for="email">Nouvelle adresse email:</label> 
-			<input type="email" id="email" name = "email">
-			<span><em>Ancienne : <c:out value = "${u.getMail()}"/></em></span>
+<div>
+			<label for="mdp"/>
+			<input type="password" id="mdp" name = "mdp" placeholder="nouveau mot de passe">
+</div>
+<br>
+	<div>
+			<label for="mdp_confirm"/>
+			<input type="password" id="mdp_confirm" name = "mdp_confirm" placeholder="confirmer mot de passe">
+</div>
 			<br>
-
-			<label for="genre">Genre:</label> 
+<div>
+			<label for="email"/>
+			<input type="email" id="email" name = "email" placeholder="modifier email"><br>
+			<span><em><div class="description">Ancienne addresse: </div><c:out value = "${u.getMail()}"/></em></span>
+</div>
+			<br>
+<div>
+			<label for="genre"/>
 			<select name="genre" size="1" id = "genre">
-			<option>Feminin
-			<option>Masculin
+			<option><div class="description">Feminin</div>
+			<option><div class="description">Masculin</div>
 			</option>
+		</div>
 			<br>
+				<div>
 			</select>
 			<input
 				type='submit' name='submit' value='modifier les informations !'>
+				</div>
 		</form>
 
 
 		<form action="" method="POST">
-			<input type='danger' name='submit' value='supprimer votre compte ?'>
+			<input color='rgb(248, 93, 44)' type='submit' name='submit' value='supprimer votre compte ?' >
 		</form>
 	</div>
 </body>
