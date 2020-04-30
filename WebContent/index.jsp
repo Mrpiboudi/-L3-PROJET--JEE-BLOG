@@ -12,6 +12,8 @@
 
 	UserMySQLDao ud = new UserMySQLDao();
 	User user = ud.getUser(id_user);
+	
+	String pseudo_user = user.getPseudo();
 %>
 
 <!DOCTYPE html>
@@ -33,14 +35,14 @@
 			href="<%=request.getContextPath()%>/LoginServlet"><h2>Deconnexion</h2></a></span>
 		<div class="page">
 			<form action="<%=request.getContextPath()%>/ProfilServlet"
-				method="POST">
+				method="GET">
 				<input type="search" name="pseudo_user" placeholder="search">
-				<input type="hidden" name="id_user" value="<%=id_user%>" /> <input
-					type="submit" name="Publier" value="search" />
+				<input
+					type="submit" value="search" />
 			</form>
 		</div>
 		<br> <a
-			href="<%=request.getContextPath()%>/ProfilServlet?user=<%=id_user%>"><h1>Compte</h1></a>
+			href="<%=request.getContextPath()%>/ProfilServlet?user=<%=pseudo_user%>"><h1>Compte</h1></a>
 	</div>
 	<div class="page">
 		<!-- Creation de post -->
@@ -70,7 +72,7 @@
 				%>
 
 				<a
-					href="<%=request.getContextPath()%>/ProfilServlet?user=<%=p_user.getId()%>"><class="description"><%=p_user.getPseudo()%>
+					href="<%=request.getContextPath()%>/ProfilServlet?user=<%=p_user.getPseudo()%>"><class="description"><%=p_user.getPseudo()%>
 					:</class="description"></a>
 				<div>
 					<textarea type="textarea" rows=5 cols=40><%=p.getMsg()%></textarea>
@@ -99,7 +101,7 @@
 					%>
 
 					<a
-						href="<%=request.getContextPath()%>/ProfilServlet?user=<%=c_user.getId()%>"><div
+						href="<%=request.getContextPath()%>/ProfilServlet?user=<%=c_user.getPseudo()%>"><div
 							class="description"><%=c_user.getPseudo()%>
 							:</a> <span><%=comm.getDate()%></span>
 				</div>

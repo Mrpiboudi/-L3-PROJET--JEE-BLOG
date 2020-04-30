@@ -39,20 +39,13 @@ public class ProfilServlet extends HttpServlet {
 		UserMySQLDao ud = new UserMySQLDao();
 		User u = new User();
 
-		String id = request.getParameter("user");
 		int id_c_user = 0;
-		if(id.equals(null)) {
-			id = (String) request.getAttribute("user_2");
-		}
-		if(!id.equals(null)) {
-			 id_c_user = Integer.parseInt(id);
-			 u = ud.getUser(id_c_user);
-		}
-		else {
-			String ps = request.getParameter("pseudo_user");
-			u = ud.getUser(ps);
-			id_c_user = u.getId();
-		}
+		
+	
+		String ps = request.getParameter("pseudo_user");
+		u = ud.getUser(ps);
+		id_c_user = u.getId();
+		
 		
 		if(id_user == id_c_user) {
 			itsMe = true;
@@ -68,11 +61,12 @@ public class ProfilServlet extends HttpServlet {
 
 		dispatcher.forward(request, response);
 
-
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		
+		
+		
 	}
 
 }

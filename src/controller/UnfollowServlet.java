@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.RelationMySQLDao;
+import dao.UserMySQLDao;
 import model.Relation;
+import model.User;
 
 /**
  * Servlet implementation class UnfollowServlet
@@ -34,15 +36,16 @@ public class UnfollowServlet extends HttpServlet {
 		
 		String idUser2Tmp = (String) request.getParameter("userU");
 		int id_user_2 = Integer.parseInt(idUser2Tmp);
-		
+		UserMySQLDao ud = new UserMySQLDao();
+		User u = ud.getUser(id_user_2);
+
 		RelationMySQLDao rd = new RelationMySQLDao();
 		Relation newRelation = new Relation(id_user, id_user_2);
 		rd.supprimerRelation(newRelation);
 		
 		request.setAttribute("user_2", idUser2Tmp);
 		
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ProfilServlet");
-		dispatcher.forward(request, response);
+		response.sendRedirect("ProfilServlet?pseudo_user="+u.getPseudo());
 		
 	}
 

@@ -28,11 +28,11 @@
 		<span><a
 			href="<%=request.getContextPath()%>/IndexServlet"><h2>Deconnexion</h2></a></span>
 		<div class="page">
-			<form action="<%=request.getContextPath()%>/SearchUserServlet"
-				method="POST">
+			<form action="<%=request.getContextPath()%>/ProfilServlet"
+				method="GET">
 				<input type="search" name="pseudo_user" placeholder="search">
-				<input type="hidden" name="id_user" value="${id_user}" /> <input
-					type="submit" name="Publier" value="search" />
+				<input
+					type="submit" value="search" />
 			</form>
 		</div>
 		<br>

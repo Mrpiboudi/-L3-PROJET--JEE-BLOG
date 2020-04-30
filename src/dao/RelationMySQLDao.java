@@ -29,7 +29,7 @@ public class RelationMySQLDao implements RelationDao{
 			//Preparation de la requete
 			preparedStatement = connection.prepareStatement(requete);
 			preparedStatement.setInt(1, r.getIdUser1());
-			preparedStatement.setInt(1, r.getIdUser2());
+			preparedStatement.setInt(2, r.getIdUser2());
 
 			//Execution de la requete
 			preparedStatement.executeUpdate();
@@ -63,7 +63,7 @@ public class RelationMySQLDao implements RelationDao{
 	public void supprimerRelation(Relation r) {
 		// TODO Auto-generated method stub
 		//requete pour supprimer une relation
-		String requete = "DELETE FROM relation WHERE id_relation = ?";
+		String requete = "DELETE FROM relation WHERE id_user1 = ? AND id_user2=?";
 
 		//Connexion à la base de données
 		Connection connection = DBConnection.getInstance();
@@ -72,7 +72,8 @@ public class RelationMySQLDao implements RelationDao{
 		try {
 			//Preparation de la requete
 			preparedStatement = connection.prepareStatement(requete);
-			preparedStatement.setInt(1, r.getIdRelation());
+			preparedStatement.setInt(1, r.getIdUser1());
+			preparedStatement.setInt(2, r.getIdUser2());
 
 			//Execution de la requete
 			preparedStatement.executeUpdate();
