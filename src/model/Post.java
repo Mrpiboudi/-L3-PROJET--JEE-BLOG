@@ -2,7 +2,11 @@ package model;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
+import dao.PostMySQLDao;
 
 public class Post implements Serializable{
 	
@@ -10,6 +14,8 @@ public class Post implements Serializable{
 	private int idUser;
 	private String msg;
 	private Timestamp date;
+	
+	private List<Commentaire> commentsList = new ArrayList<Commentaire>();
 	
 	public Post() {}
 	
@@ -45,6 +51,15 @@ public class Post implements Serializable{
 	}
 	public void setDate(Timestamp date) {
 		this.date = date;
+	}
+
+	public List<Commentaire> getCommentsList() {
+		return commentsList;
+	}
+
+	public void setCommentsList() {
+		PostMySQLDao pd = new PostMySQLDao();
+		this.commentsList = pd.getAllComments(this.id);
 	}
 	
 	

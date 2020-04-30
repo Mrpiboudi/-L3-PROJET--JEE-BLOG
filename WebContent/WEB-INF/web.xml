@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>ourblog</display-name>
+ <servlet>
+ 	<servlet-name>indexServlet</servlet-name>
+ 	<servlet-class>controller.IndexServlet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+ 	<servlet-name>indexServlet</servlet-name>
+ 	<url-pattern>/IndexServlet</url-pattern>
+ </servlet-mapping>
+ 
+ <servlet>
+ 	<servlet-name>postServlet</servlet-name>
+ 	<servlet-class>controller.PostServlet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+ 	<servlet-name>postServlet</servlet-name>
+ 	<url-pattern>/PostServlet</url-pattern>
+ </servlet-mapping>
+ 
+ <servlet>
+ 	<servlet-name>commentaireServlet</servlet-name>
+ 	<servlet-class>controller.CommentaireServlet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+ 	<servlet-name>commentaireServlet</servlet-name>
+ 	<url-pattern>/CommentaireServlet</url-pattern>
+ </servlet-mapping>
+ 
+ <servlet>
+ 	<servlet-name>changeAccountInformationServlet</servlet-name>
+ 	<servlet-class>controller.ChangeAccountInformationServlet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+ 	<servlet-name>changeAccountInformationServlet</servlet-name>
+ 	<url-pattern>/ChangeAccountInformationServlet</url-pattern>
+ </servlet-mapping>
+</web-app>

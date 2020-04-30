@@ -16,4 +16,6 @@ public interface UserDao {
 	public List<Post> getAllPosts(int idUser);
 	
 	public User getUser(String pseudo, String mdp);
+	
+	public User getUser(int id_user);
 }

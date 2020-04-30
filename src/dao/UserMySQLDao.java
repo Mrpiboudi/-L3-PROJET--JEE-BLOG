@@ -166,23 +166,23 @@ public class UserMySQLDao implements UserDao{
 	@Override
 	public List<Post> getAllPosts(int idUser) {
 		// TODO Auto-generated method stub
-		
+
 		//Liste des posts de l'utilisateur
 		List<Post> postsUser = new ArrayList<Post>();
-		
+
 		//Requete
 		String requete = "SELECT * FROM post WHERE id_user = '"+idUser+"'";
-		
+
 		//Recuperation de la connexion à la base de données
 		Connection connection = DBConnection.getInstance();
 		Statement statement = null;
-		
+
 		try {
-			
+
 			//Execution de la requete et recuperation du resultat
 			statement = connection.createStatement();
 			ResultSet rs = statement.executeQuery(requete);
-			
+
 			//Pour chaque tuple creation d'un nouveau post inseré dans la liste
 			while(rs.next()) {
 				Post p = new Post();
@@ -190,10 +190,10 @@ public class UserMySQLDao implements UserDao{
 				p.setIdUser(rs.getInt("id_user"));
 				p.setMsg(rs.getString("message"));
 				p.setDate(rs.getTimestamp("date"));
-				
+
 				postsUser.add(p);
 			}
-			
+
 		} catch(SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -217,28 +217,28 @@ public class UserMySQLDao implements UserDao{
 			}
 
 		}
-		
+
 		return postsUser;
 	}
-	
+
 	public User getUser(String pseudo, String mdp) {
-		
+
 		User user = new User();
-		
+
 		//Requete pour recuperer un utilisateur
 		String requete = "SELECT * from user WHERE pseudo = ? AND mdp = ?";
-		
+
 		Connection connection = DBConnection.getInstance();
 		PreparedStatement preparedStatement = null;
-		
+
 		try {
-			
+
 			preparedStatement = connection.prepareStatement(requete);
 			preparedStatement.setString(1, pseudo);
 			preparedStatement.setString(2, mdp);
-			
+
 			ResultSet rs = preparedStatement.executeQuery();
-			
+
 			while(rs.next()) {
 				user.setId(rs.getInt("id_user"));
 				user.setPseudo(rs.getString("pseudo"));
@@ -249,7 +249,7 @@ public class UserMySQLDao implements UserDao{
 				user.setMail(rs.getString("email"));
 				user.setGenre(rs.getString("genre"));
 			}
-			
+
 		} catch(SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -273,11 +273,64 @@ public class UserMySQLDao implements UserDao{
 			}
 
 		}
-		
+
 		return user;
 	}
 
+	public User getUser(int id_user) {
 
+		User user = new User();
+
+		//Requete pour recuperer un utilisateur
+		String requete = "SELECT * from user WHERE id_user = ?";
+
+		Connection connection = DBConnection.getInstance();
+		PreparedStatement preparedStatement = null;
+
+		try {
+
+			preparedStatement = connection.prepareStatement(requete);
+			preparedStatement.setInt(1, id_user);
+
+			ResultSet rs = preparedStatement.executeQuery();
+
+			while(rs.next()) {
+				user.setId(rs.getInt("id_user"));
+				user.setPseudo(rs.getString("pseudo"));
+				user.setLastname(rs.getString("prenom"));
+				user.setFirstname(rs.getString("nom"));
+				user.setAge(rs.getInt("age"));
+				user.setMdp(rs.getString("mdp"));
+				user.setMail(rs.getString("email"));
+				user.setGenre(rs.getString("genre"));
+			}
+
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} finally {
+
+			if (preparedStatement != null) {
+				try {
+					preparedStatement.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+
+		}
+
+		return user;
+	}
 
 
 }

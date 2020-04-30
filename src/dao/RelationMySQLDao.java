@@ -103,7 +103,6 @@ public class RelationMySQLDao implements RelationDao{
 
 	}
 
-	@Override
 	public List<User> getAllFriends(int idUser) {
 		// TODO Auto-generated method stub
 		
